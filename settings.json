@@ -1,0 +1,17 @@
+{
+  "blur_sensitive_text": true,
+  "blur_ui_elements": true,
+  "enable_region_blur": true,
+  "targets": [
+    "email",
+    "credit_card",
+    "login_field",
+    "kakao_popup",
+    "desktop_entry",
+    "username"
+  ],
+  "use_ml_ui_detector": false,
+  "use_openai_api": false,
+  "openai_api_key": "",
+  "fps": 20
+}

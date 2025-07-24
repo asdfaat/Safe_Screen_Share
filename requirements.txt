@@ -1,0 +1,9 @@
+pyautogui
+opencv-python
+numpy
+pytesseract
+Pillow
+pywin32
+tk
+ttkbootstrap
+pyvirtualcam
