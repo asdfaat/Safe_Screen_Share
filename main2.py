@@ -9,9 +9,10 @@ from monitor.screen_capture import capture_screen, blur_regions
 from monitor.event_listener import monitor_window_state
 from core.ocr_blur import detect_and_blur_sensitive_data
 from core.template_match import detect_ui_elements
+from core.kakao_blur import detect_kakao_windows  
 from ui.region_selector import select_region_for_blurring
-from utils.settings import load_settings
 from ui.main_window import show_settings_window
+from utils.settings import load_settings
 
 def main():
     # 1. GUI로 옵션 선택
@@ -56,6 +57,10 @@ def main():
             if settings.get("use_ml_ui_detector"):
                 from core.ml_ui_detector import detect_login_fields
                 regions_to_blur += detect_login_fields(screen, settings)
+            
+            # 카카오톡 창 감지 
+            if settings.get("blur_kakao_windows"):
+               regions_to_blur += detect_kakao_windows(screen, settings)    
 
             # 마우스 드래그 영역 블러
             regions_to_blur += blur_regions_list
