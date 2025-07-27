@@ -1,3 +1,5 @@
+# main2.py
+
 import threading
 import time
 import sys
@@ -18,8 +20,13 @@ def main():
         sys.exit(0)
     settings = load_settings()
 
+    # 블러 콜백 함수 정의 
+    global_blur_flag = {"do_blur": False}
+    def on_blur(event_type):
+        global_blur_flag["do_blur"] = True
+
     # 2. 창 상태 감지 (바탕화면, 창 전환 등)
-    threading.Thread(target=monitor_window_state, args=(settings,), daemon=True).start()
+    threading.Thread(target=monitor_window_state, args=(settings, on_blur), daemon=True).start()
 
     # 3. 마우스 드래그 영역 블러
     blur_regions_list = []
@@ -55,6 +62,10 @@ def main():
 
             # 블러 처리
             blurred = blur_regions(screen, regions_to_blur)
+            
+            # 창 전환/바탕화면 진입 시 전체 블러 처리
+            if global_blur_flag["do_blur"]:
+
             rgb = cv2.cvtColor(blurred, cv2.COLOR_BGR2RGB)
             cam.send(rgb)
             cam.sleep_until_next_frame()
