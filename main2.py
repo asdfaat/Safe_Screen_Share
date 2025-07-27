@@ -65,6 +65,8 @@ def main():
             
             # 창 전환/바탕화면 진입 시 전체 블러 처리
             if global_blur_flag["do_blur"]:
+                blurred = cv2.GaussianBlur(blurred, (51, 51), 0)
+                global_blur_flag["do_blur"] = False
 
             rgb = cv2.cvtColor(blurred, cv2.COLOR_BGR2RGB)
             cam.send(rgb)
