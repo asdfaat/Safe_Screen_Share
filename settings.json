@@ -8,10 +8,16 @@
     "login_field",
     "kakao_popup",
     "desktop_entry",
-    "username"
+    "username",
+    "window_switch"
   ],
   "use_ml_ui_detector": false,
   "use_openai_api": false,
   "openai_api_key": "",
-  "fps": 20
+  "fps": 20,
+  "blur_kakao_windows": true,
+  "blur_kakao_notifications": true,
+  "blur_kakao_notifications_only": false,
+  "kakao_blur_strength": 51,
+  "debug_mode": false
 }

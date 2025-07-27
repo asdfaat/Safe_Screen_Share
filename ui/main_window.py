@@ -1,3 +1,5 @@
+# main_window.py
+
 import sys
 import ttkbootstrap as tb
 from ttkbootstrap.constants import *
@@ -12,6 +14,7 @@ BLUR_OPTIONS = [
     ("로그인 필드", "login_field"),
     ("카카오톡 팝업", "kakao_popup"),
     ("바탕화면 진입 시 전체 블러", "desktop_entry"),
+    ("창 전환 시 전체 블러", "window_switch"),
     ("사용자 이름", "username"),
     ("ML 기반 로그인 필드 탐지", "use_ml_ui_detector"),
     ("OpenAI API 의미 탐지", "use_openai_api"),
